@@ -48,7 +48,7 @@ public class DonorController {
     return donorService.update(donorUpdateDTO, id);
   }
 
-  @DeleteMapping
+  @DeleteMapping("{id}")
   @Operation(description = "Apaga os dados de um doador")
   @ResponseStatus(HttpStatus.NO_CONTENT)
   public void delete(@PathVariable Long id){

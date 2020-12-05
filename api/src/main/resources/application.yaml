@@ -3,7 +3,7 @@ server:
 
 spring:
   datasource:
-    url: jdbc:h2:~/hemocentrodb;DB_CLOSE_ON_EXIT=FALSE
+    url: jdbc:h2:~/blooddonorsdb;DB_CLOSE_ON_EXIT=FALSE
     username: rest
     password: rest
   jpa:

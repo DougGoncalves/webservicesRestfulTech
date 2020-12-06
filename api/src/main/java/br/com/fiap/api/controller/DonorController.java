@@ -25,13 +25,13 @@ public class DonorController {
 
   @GetMapping
   @Operation(description = "Listagem de doadores")
-  public List<DonorDTO> findAll(@RequestParam(required = false, value = "name") String name) {
+  public List<DonorDTO> listAll(@RequestParam(required = false, value = "name") String name) {
     return donorService.findAll(name);
   }
 
   @GetMapping("{id}")
   @Operation(description = "Lista um doador a partir de seu id")
-  public DonorDTO findById(@PathVariable Long id){
+  public DonorDTO getById(@PathVariable Long id){
     return donorService.findById(id);
   }
 

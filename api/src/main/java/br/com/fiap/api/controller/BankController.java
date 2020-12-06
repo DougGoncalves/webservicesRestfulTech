@@ -24,13 +24,13 @@ public class BankController {
 
   @GetMapping
   @Operation(description = "Relação de Bancos de Sangue cadastrados")
-  public List<BankDTO> findAll(@RequestParam(required = false, value= "name") String name){
+  public List<BankDTO> listAll(@RequestParam(required = false, value= "name") String name){
     return bankService.findAll(name);
   }
 
   @GetMapping("{id}")
   @Operation(description = "Busca um banco de sangue a partir de seu id")
-  public BankDTO findById(@PathVariable Long id){
+  public BankDTO getById(@PathVariable Long id){
     return bankService.findById(id);
   }
 

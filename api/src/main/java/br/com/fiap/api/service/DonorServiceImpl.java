@@ -15,7 +15,7 @@ import br.com.fiap.api.repository.DonorRepository;
 @Service
 public class DonorServiceImpl implements DonorService{
 
-  private DonorRepository donorRepository;
+  private final DonorRepository donorRepository;
 
   public DonorServiceImpl(DonorRepository donorRepository){
     this.donorRepository = donorRepository;

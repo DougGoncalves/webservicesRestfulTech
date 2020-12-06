@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 @Service
 public class BankServiceImpl implements BankService{
 
-  private BankRepository bankRepository;
+  private final BankRepository bankRepository;
 
   public BankServiceImpl(BankRepository bankRepository){
     this.bankRepository = bankRepository;

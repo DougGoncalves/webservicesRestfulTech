@@ -66,7 +66,7 @@ public class BankServiceImpl implements BankService{
   }
 
   private Bank getBankById(Long id){
-    return bankRepository.findByIdAndActiveIsTrue(id)
+    return bankRepository.findFirstByIdAndActiveIsTrue(id)
       .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
   }
   

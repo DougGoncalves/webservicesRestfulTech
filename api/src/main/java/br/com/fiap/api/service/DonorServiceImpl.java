@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import br.com.fiap.api.dto.DonorUpdateDTO;
@@ -11,6 +12,7 @@ import br.com.fiap.api.dto.DonorDTO;
 import br.com.fiap.api.entity.Donor;
 import br.com.fiap.api.repository.DonorRepository;
 
+@Service
 public class DonorServiceImpl implements DonorService{
 
   private DonorRepository donorRepository;
@@ -64,7 +66,7 @@ public class DonorServiceImpl implements DonorService{
   }
 
   private Donor getDonorById(Long id){
-    return donorRepository.findByIdAndActiveIstrue(id)
+    return donorRepository.findFirstByIdAndActiveIsTrue(id)
       .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
   }
   

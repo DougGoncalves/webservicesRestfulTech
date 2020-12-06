@@ -29,7 +29,7 @@ public class Bank {
   private List<String> stock;
 
   @Column
-  private Boolean active;
+  private Boolean active = true;
 
   public Bank() {}
 
@@ -40,7 +40,6 @@ public class Bank {
     this.address = bankUpdateDTO.getAddress();
     this.telephone = bankUpdateDTO.getTelephone();
     this.stock = bankUpdateDTO.getStock();
-    this.active = true;
   }
 
 

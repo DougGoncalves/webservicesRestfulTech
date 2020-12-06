@@ -36,7 +36,7 @@ public class Donor {
   private String Rg;
 
   @Column
-  private Boolean active;
+  private Boolean active = true;
 
   public Donor(){  
   }
@@ -47,7 +47,6 @@ public class Donor {
     this.age = donorUpdateDTO.getAge();
     this.bloodtype = donorUpdateDTO.getBloodtype();
     this.Rg = donorUpdateDTO.getRg();
-    this.active = true;
   }
 
   public Long getId() {

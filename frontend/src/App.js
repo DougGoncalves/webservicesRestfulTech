@@ -1,25 +1,24 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import { Container, Row, Col } from 'reactstrap'
+import DoadorForm from './components/DoadorForm'
+import DoadorList from './components/DoadorList'
+import { DoadorContextProvider } from './store/store'
 
-function App() {
+
+export default () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <DoadorContextProvider>
+      <Container>
+        <Row className="justify-content-center">
+          <Col md="12">
+            <h1><strong>Cadastramento de Doador</strong></h1>
+            <hr className="hr" />
+          </Col>
+          <DoadorForm />
+          <DoadorList />
+        </Row>
+      </Container>
+    </DoadorContextProvider> 
+  )
 }
-
-export default App;

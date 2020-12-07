@@ -7,67 +7,69 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
-import br.com.fiap.api.dto.DonorUpdateDTO;
 import br.com.fiap.api.dto.DonorDTO;
+import br.com.fiap.api.dto.DonorUpdateDTO;
 import br.com.fiap.api.entity.Donor;
 import br.com.fiap.api.repository.DonorRepository;
 
 @Service
-public class DonorServiceImpl implements DonorService{
+public class DonorServiceImpl implements DonorService {
 
-  private final DonorRepository donorRepository;
+	private final DonorRepository donorRepository;
 
-  public DonorServiceImpl(DonorRepository donorRepository){
-    this.donorRepository = donorRepository;
-  }
+	public DonorServiceImpl(DonorRepository donorRepository) {
+		this.donorRepository = donorRepository;
+	}
 
-  @Override
-  public List<DonorDTO> findAll(String search){
-    String searchTerm = search == null ? "" : search;
-    List<DonorDTO> donorList = donorRepository.findByName(searchTerm).stream()
-      .map(donor -> new DonorDTO(donor)).collect(Collectors.toList());
+	@Override
+	public List<DonorDTO> findAll(String search) {
+		String searchTerm = search == null ? "" : search;
+		List<DonorDTO> donorList = donorRepository.findByName(searchTerm)
+				.stream()
+				.map(donor -> new DonorDTO(donor))
+				.collect(Collectors.toList());
 
-    return donorList;
-  }
+		return donorList;
+	}
 
-  @Override
-  public DonorDTO findById(Long id){
-    Donor donor = getDonorById(id);
+	@Override
+	public DonorDTO findById(Long id) {
+		Donor donor = getDonorById(id);
 
-    return new DonorDTO(donor);
-  }
+		return new DonorDTO(donor);
+	}
 
-  @Override
-  public DonorDTO create(DonorUpdateDTO donorUpdateDTO){
-    Donor donor = new Donor(donorUpdateDTO);
-    Donor savedDonor = donorRepository.save(donor);
+	@Override
+	public DonorDTO create(DonorUpdateDTO donorUpdateDTO) {
+		Donor donor = new Donor(donorUpdateDTO);
+		Donor savedDonor = donorRepository.save(donor);
 
-    return new DonorDTO(savedDonor);
-  }
+		return new DonorDTO(savedDonor);
+	}
 
-  @Override
-  public DonorDTO update(DonorUpdateDTO donorUpdateDTO, Long id){
-    Donor donor = getDonorById(id);
-    donor.setName(donorUpdateDTO.getName());
-    donor.setAge(donorUpdateDTO.getAge());
-    donor.setBloodtype(donorUpdateDTO.getBloodtype());
-    donor.setRg(donorUpdateDTO.getRg());
+	@Override
+	public DonorDTO update(DonorUpdateDTO donorUpdateDTO, Long id) {
+		Donor donor = getDonorById(id);
+		donor.setName(donorUpdateDTO.getName());
+		donor.setAge(donorUpdateDTO.getAge());
+		donor.setBloodtype(donorUpdateDTO.getBloodtype());
+		donor.setRg(donorUpdateDTO.getRg());
 
-    Donor donorSaved = donorRepository.save(donor);
+		Donor donorSaved = donorRepository.save(donor);
 
-    return new DonorDTO(donorSaved);
-  }
+		return new DonorDTO(donorSaved);
+	}
 
-  @Override
-  public void delete(Long id){
-    Donor donor = getDonorById(id);
-    donor.setActive(false);
-    donorRepository.save(donor);
-  }
+	@Override
+	public void delete(Long id) {
+		Donor donor = getDonorById(id);
+		donor.setActive(false);
+		donorRepository.save(donor);
+	}
 
-  private Donor getDonorById(Long id){
-    return donorRepository.findFirstByIdAndActiveIsTrue(id)
-      .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
-  }
-  
+	private Donor getDonorById(Long id) {
+		return donorRepository.findFirstByIdAndActiveIsTrue(id)
+				.orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+	}
+
 }

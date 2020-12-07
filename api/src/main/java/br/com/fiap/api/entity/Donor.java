@@ -38,8 +38,7 @@ public class Donor {
   @Column
   private Boolean active = true;
 
-  public Donor(){  
-  }
+  public Donor(){}
 
   public Donor(DonorUpdateDTO donorUpdateDTO){
     this.id = 0L;

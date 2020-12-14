@@ -44,7 +44,6 @@ export default () => {
             <Form onSubmit={onSubmit}>
                 <FormGroup>
                     <Label>Nome:</Label>
-
                     <Input {...name} type="text" name="name" required autoFocus />
                 </FormGroup>
                 <FormGroup>
@@ -59,13 +58,10 @@ export default () => {
                     <Label>RG:</Label>
                     <Input {...rg} type="text" name="rg" required />
                 </FormGroup>
-
                 <Button color="primary" size="lg" block>Adicionar</Button>
             </Form>
         </Col>
-
     )
-
 }
 
 function useFormInput(initialValue) {

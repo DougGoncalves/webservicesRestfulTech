@@ -20,8 +20,7 @@
 
  ## 💻 Projeto
 
- Projeto referente a disciplina de Webservices & Restful Technologies, do MBA da [FIAP](https://www.fiap.com.br/mba/mba-em-full-stack-developer-microservices-cloud-e-iot/). Foi desenvolvida uma solução para o cadastramento de doadores de sangue em um banco, criando assim uma API com os dados destes doadores. Você pode ver um exemplo em vídeo do funcionamento dessas features nesse [link](https://vimeo.com/469054093 )
-
+ Projeto referente a disciplina de Webservices & Restful Technologies, do MBA da [FIAP](https://www.fiap.com.br/mba/mba-em-full-stack-developer-microservices-cloud-e-iot/). Foi desenvolvida uma solução para o cadastramento de doadores de sangue em um banco, criando assim uma API com os dados destes doadores. 
  ## Como executar ?
 
  - Baixar o projeto: `$ git clone https://github.com/DougGoncalves/webservicesRestfulTech`
